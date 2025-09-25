@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MODELO AÇAÍ — Cardápio</title>
+  <style>
+    :root{--accent:#6b2d6f;--muted:#666}
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fafafa;color:#111}
+    header{background:linear-gradient(90deg,#fff,#fff);border-bottom:1px solid #eee;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+    nav a{margin:0 8px;color:var(--muted);text-decoration:none}
+    .phone{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;text-decoration:none}
+    .container{max-width:1100px;margin:18px auto;padding:0 16px}
+    .hero{display:flex;gap:20px;align-items:center}
+    .filters{min-width:220px}
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:12px}
+    .card{background:white;border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .card h3{margin:8px 0 4px;font-size:18px}
+    .card p{margin:0 0 8px;color:var(--muted)}
+    .price{font-weight:700}
+    .buy{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none}
+    footer{margin-top:28px;padding:18px 0;border-top:1px solid #eee;text-align:center;color:var(--muted)}
+    .badge{font-size:12px;background:#eef7ff;padding:6px;border-radius:999px}
+    @media(max-width:720px){.hero{flex-direction:column}.filters{width:100%}}
+    .cart{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,0.15)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="https://via.placeholder.com/200x200.png?text=A%C3%A7a%C3%AD" alt="Logo">
+      <div>
+        <div style="font-weight:700">MODELO AÇAÍ</div>
+        <div style="font-size:13px;color:var(--muted)">Pedidos pelo WhatsApp • Rua Alameda do Açaí, 10</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <nav>
+        <a href="#">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#contato">Fale conosco</a>
+      </nav>
+      <a class="phone" href="https://wa.me/31973628952" target="_blank">WhatsApp: (31) 97362-8952</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <aside class="filters card">
+        <h4>Categorias</h4>
+        <ul style="padding-left:16px">
+          <li><a href="#">Tudo</a></li>
+          <li><a href="#">Açaí com complementos</a></li>
+          <li><a href="#">Açaí puro</a></li>
+          <li><a href="#">Sorvetes</a></li>
+        </ul>
+        <hr>
+        <div><strong>Funcionamento</strong><br>Seg a Sáb 11h–23h • Dom 10h–00h</div>
+        <hr>
+        <div><strong>Endereço</strong><br>Rua Alameda do Açaí, Nº 10, Centro</div>
+      </aside>
+
+      <section style="flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 id="categorias">Cardápio — 3 itens</h2>
+          <div class="badge">Pedido mínimo: R$ 10,00</div>
+        </div>
+
+        <div class="product-grid" id="products">
+          <article class="card" data-id="1">
+            <img src="https://via.placeholder.com/600x400.png?text=A%C3%A7a%C3%AD+no+Copo" alt="Açaí no Copo">
+            <h3>AÇAÍ NO COPO</h3>
+            <p>Com opções de complementos. Tamanho: 300ml / 500ml</p>
+            <div class="price">A partir de R$ 20,00</div>
+            <a class="buy" href="#" onclick="addToCart(1,'AÇAÍ NO COPO',20);return false">Comprar</a>
+          </article>
+
+          <article class="card" data-id="2">
+            <img src="https://via.placeholder.com/600x400.png?text=A%C3%A7a%C3%AD+Puro" alt="Açaí Puro">
+            <h3>AÇAI PURO</h3>
+            <p>Sabor original, sem complementos.</p>
+            <div class="price">A partir de R$ 30,00</div>
+            <a class="buy" href="#" onclick="addToCart(2,'AÇAI PURO',30);return false">Comprar</a>
+          </article>
+
+          <article class="card" data-id="3">
+            <img src="https://via.placeholder.com/600x400.png?text=Sorvete+Bola" alt="Sorvete Bola">
+            <h3>SORVETE BOLA SABORES</h3>
+            <p>Vários sabores por bola.</p>
+            <div class="price">A partir de R$ 15,00</div>
+            <a class="buy" href="#" onclick="addToCart(3,'SORVETE BOLA',15);return false">Comprar</a>
+          </article>
+        </div>
+
+        <div style="margin-top:12px;background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04)">
+          <h3>Opção grátis</h3>
+          <p style="margin:6px 0">Publique no GitHub Pages ou Netlify para ter seu site online grátis.</p>
+        </div>
+      </section>
+    </section>
+
+    <div style="height:18px"></div>
+
+    <section id="contato" class="card">
+      <h3>Fale conosco</h3>
+      <p>Telefone / WhatsApp: <a href="https://wa.me/31973628952" target="_blank">(31) 97362-8952</a></p>
+      <p>Endereço: Rua Alameda do Açaí, Nº 10 — Centro</p>
+    </section>
+  </main>
+
+  <div class="cart" id="cartBtn" onclick="openWhatsApp()">Minha sacola <span id="cartCount">0</span></div>
+
+  <footer>
+    © MODELO AÇAÍ • Criado com template. Site de referência: meucatalogofacil.com.br
+  </footer>
+
+  <script>
+    const cart = [];
+    function addToCart(id,name,price){
+      cart.push({id,name,price});
+      document.getElementById('cartCount').innerText = cart.length;
+      alert(name + ' adicionado à sacola. Clique em MINHA SACOLA para finalizar pelo WhatsApp.');
+    }
+    function openWhatsApp(){
+      if(cart.length===0){
+        window.open('https://wa.me/31973628952?text=Olá!%20Quero%20fazer%20um%20pedido.','_blank');
+        return;
+      }
+      let text = 'Olá!%20Gostaria%20de%20fazer%20este%20pedido:%0A';
+      cart.forEach((it,i)=>{ text += (i+1)+'. '+encodeURIComponent(it.name)+' - R$ '+it.price + '%0A'; });
+      text += '%0ATotal:%20R$%20' + cart.reduce((s,i)=>s+i.price,0);
+      const wa = 'https://wa.me/31973628952?text=' + text;
+      window.open(wa,'_blank');
+    }
+  </script>
+</body>
+</html>
